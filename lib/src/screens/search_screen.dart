@@ -5,6 +5,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hotspot/src/screens/detail_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'widgets/search_screen_extended_info.dart';
 
 import '../blocs/bloc_exports.dart';
 import '../blocs/info/info_bloc.dart';
@@ -268,41 +269,9 @@ class _SearchScreenState extends State<SearchScreen> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 // 상세설명
-                                                Row(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              top: 3),
-                                                      child: SvgPicture.asset(
-                                                        documentSvg,
-                                                        width: 14,
-                                                        colorFilter:
-                                                            const ColorFilter
-                                                                .mode(
-                                                          Colors.grey,
-                                                          BlendMode.srcIn,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    const SizedBox(width: 4),
-                                                    Flexible(
-                                                      child: Text(
-                                                        info.details,
-                                                        style: const TextStyle(
-                                                          fontVariations: <FontVariation>[
-                                                            FontVariation(
-                                                                'wght', 400),
-                                                          ],
-                                                        ),
-                                                        overflow: TextOverflow
-                                                            .ellipsis,
-                                                        maxLines: 2,
-                                                      ),
-                                                    ),
-                                                  ],
+                                                ExtendedInfo(
+                                                  documentSvg: documentSvg,
+                                                  detail: info.details,
                                                 ),
                                                 const SizedBox(height: 6),
                                                 // 연락처
@@ -344,57 +313,17 @@ class _SearchScreenState extends State<SearchScreen> {
                                                 ),
                                                 const SizedBox(height: 6),
                                                 //영업시간
-                                                Row(
-                                                  children: [
-                                                    SvgPicture.asset(
-                                                      clockSvg,
-                                                      width: 14,
-                                                      colorFilter:
-                                                          const ColorFilter
-                                                              .mode(
-                                                        Colors.grey,
-                                                        BlendMode.srcIn,
-                                                      ),
-                                                    ),
-                                                    const SizedBox(width: 4),
-                                                    Text(
-                                                      info.workhours,
-                                                      style: const TextStyle(
-                                                        fontVariations: <FontVariation>[
-                                                          FontVariation(
-                                                              'wght', 400),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ],
+                                                ExtendedInfo(
+                                                  documentSvg: clockSvg,
+                                                  detail: info.workhours,
                                                 ),
 
                                                 const SizedBox(height: 6),
                                                 //휴무시간
-                                                Row(
-                                                  children: [
-                                                    SvgPicture.asset(
-                                                      offSvg,
-                                                      width: 14,
-                                                      colorFilter:
-                                                          const ColorFilter
-                                                              .mode(
-                                                        Colors.grey,
-                                                        BlendMode.srcIn,
-                                                      ),
-                                                    ),
-                                                    const SizedBox(width: 4),
-                                                    Text(
-                                                      info.off,
-                                                      style: const TextStyle(
-                                                        color: Colors.redAccent,
-                                                        fontVariations: <FontVariation>[
-                                                          FontVariation(
-                                                              'wght', 400),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ],
+                                                ExtendedInfo(
+                                                  documentSvg: offSvg,
+                                                  detail: info.off,
+                                                  textColor: Colors.red,
                                                 ),
                                                 const SizedBox(height: 6),
                                               ],
