@@ -63,10 +63,26 @@ class MainScreen extends StatelessWidget {
                                                 img:
                                                     'assets/images/gangwon-min.jpg',
                                                 title: '강원도'),
+                                            SizedBox(width: 10),
                                             MainScreenRegionBlock(
                                                 img:
-                                                    'assets/images/gangwon-min.jpg',
+                                                    'assets/images/gyeongsangdo-min.jpg',
                                                 title: '경상도'),
+                                            SizedBox(width: 10),
+                                            MainScreenRegionBlock(
+                                                img:
+                                                    'assets/images/choongchungdo-min.jpg',
+                                                title: '충청도'),
+                                            SizedBox(width: 10),
+                                            MainScreenRegionBlock(
+                                                img:
+                                                    'assets/images/jeonlado-min.jpg',
+                                                title: '전라도'),
+                                            SizedBox(width: 10),
+                                            MainScreenRegionBlock(
+                                                img:
+                                                    'assets/images/jejudo-min.jpg',
+                                                title: '제주도'),
                                           ],
                                         ),
                                       ),
@@ -85,7 +101,7 @@ class MainScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Text(
-                                    '드라마',
+                                    '드라마 스팟',
                                     style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.bold,
@@ -139,7 +155,7 @@ class MainScreen extends StatelessWidget {
                         const Row(
                           children: [
                             Text(
-                              '영화',
+                              '영화 스팟',
                               style: TextStyle(
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,
@@ -186,7 +202,7 @@ class MainScreen extends StatelessWidget {
                         const Row(
                           children: [
                             Text(
-                              '예능',
+                              '예능 스팟',
                               style: TextStyle(
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,
