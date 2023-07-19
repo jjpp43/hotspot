@@ -1,0 +1,8 @@
+{
+  "homeScreen": "홈",
+  "login": "로그인",
+  "logout": "로그아웃",
+  "profileScreen": "프로필",
+  "searchScreen": "검색",
+  "setting": "설정"
+}

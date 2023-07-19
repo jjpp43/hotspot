@@ -1,0 +1,8 @@
+{
+  "homeScreen": "Home",
+  "login": "Login",
+  "logout": "Logout",
+  "profileScreen": "Profile",
+  "searchScreen": "Search",
+  "setting": "Setting"
+}

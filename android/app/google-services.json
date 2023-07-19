@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "981468579569",
+    "project_id": "hotspot-fa426",
+    "storage_bucket": "hotspot-fa426.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981468579569:android:df7321faaaa528a4194b50",
+        "android_client_info": {
+          "package_name": "com.example.hotspot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "981468579569-ba29u4372o8r5gbq4l6otg88mg9f1r44.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hotspot",
+            "certificate_hash": "926fd20a630c380e80923d6c1e957062763f1e5e"
+          }
+        },
+        {
+          "client_id": "981468579569-kje9pbu1ae93fpufsvrtgcu0137sar22.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCInLg-fnePWbn0wep3gUIUb0wc55uniSs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "981468579569-kje9pbu1ae93fpufsvrtgcu0137sar22.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
