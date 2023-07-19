@@ -63,6 +63,10 @@ class MainScreen extends StatelessWidget {
                                                 img:
                                                     'assets/images/gangwon-min.jpg',
                                                 title: '강원도'),
+                                            MainScreenRegionBlock(
+                                                img:
+                                                    'assets/images/gangwon-min.jpg',
+                                                title: '경상도'),
                                           ],
                                         ),
                                       ),
