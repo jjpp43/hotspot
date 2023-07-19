@@ -1,16 +1,12 @@
 # hotspot
 
-A new Flutter project.
+A Flutter based app for letting users locate famous locations that appeared on television, movies, and other medias. 
+The purpose of the app is to faciliate traveling to various places that can be found in Korea. 
 
-## Getting Started
+## Introduction
 
-This project is a starting point for a Flutter application.
+This project is a starting point for facilitating tourism in Korea. 
 
-A few resources to get you started if this is your first Flutter project:
+By using this app, there is no need to go through intensive search on Google and Naver to find famous spots that appeared on the media. 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
