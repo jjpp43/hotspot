@@ -12,6 +12,11 @@ class getInfoEvent extends InfoEvent {
   List<Object> get props => [];
 }
 
+class getMoreInfoEvent extends InfoEvent {
+  @override
+  List<Object> get props => [];
+}
+
 class isFavorite extends InfoEvent {
   @override
   List<Object> get props => [];

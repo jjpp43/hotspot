@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
@@ -121,14 +120,8 @@ class InfoModel extends Equatable {
         off,
         address,
         contact,
-
         last_update,
         //    viewCount,
         // isFavorite,
       ];
-
-  String toJson() => json.encode(toMap());
-
-  factory InfoModel.fromJson(String source) =>
-      InfoModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }

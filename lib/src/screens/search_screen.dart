@@ -30,8 +30,23 @@ class _SearchScreenState extends State<SearchScreen> {
 
   final String offSvg = 'assets/svg/off.svg';
 
+  ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+  }
+
   @override
   Widget build(BuildContext context) {
+    _scrollController.addListener(() {
+      if (_scrollController.offset >=
+              _scrollController.position.maxScrollExtent &&
+          !_scrollController.position.outOfRange) {
+        context.read<InfoBloc>().add(getMoreInfoEvent());
+      }
+    });
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -72,11 +87,13 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
               Expanded(
                 child: SingleChildScrollView(
+                  controller: _scrollController,
                   child: Column(
                     children: [
                       BlocBuilder<InfoBloc, InfoState>(
                         builder: (context, state) {
                           final informationLists = state.infoList;
+                          print(informationLists.length);
                           return ExpansionPanelList.radio(
                             elevation: 0,
                             children: informationLists
