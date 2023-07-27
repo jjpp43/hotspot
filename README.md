@@ -1,6 +1,7 @@
 # Hotspot
 
 A Flutter based app that enables users discover and explore famous filming locations that appeared on television, movies, and other media. Embark on a exciting journey across South Korea as you uncover iconic spots. 
+
 <br/>
 <br/>
 
