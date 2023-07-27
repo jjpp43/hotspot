@@ -15,9 +15,10 @@ By using this app, there is no need to go through intensive search on Google and
 
 ## Progress
 
-![Screenshot_1690454113](https://github.com/jjpp43/hotspot/assets/61809797/aa149c33-64b4-4968-847d-7a0e037ddf4d | width=100)
-![Screenshot_1690453750](https://github.com/jjpp43/hotspot/assets/61809797/daebe659-a18a-4a70-8e0d-4dc7ef9f1adf)
-![Screenshot_1690454089](https://github.com/jjpp43/hotspot/assets/61809797/667c4955-a900-4220-b32e-0fdbafe4bd5b)
+<img src="https://github.com/jjpp43/hotspot/assets/61809797/aa149c33-64b4-4968-847d-7a0e037ddf4d" width=20%>
+<img src="https://github.com/jjpp43/hotspot/assets/61809797/daebe659-a18a-4a70-8e0d-4dc7ef9f1adf" width=20%>
+<img src="https://github.com/jjpp43/hotspot/assets/61809797/667c4955-a900-4220-b32e-0fdbafe4bd5b" width=20%>
+
 
 ## Roadmap
 
