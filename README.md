@@ -10,7 +10,7 @@ By using this app, there is no need to go through intensive search on Google and
 
 ## Built with
 * [![Flutter][Flutter][Flutter-url]
-* <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" />
+* <img height=20 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" />
           
 
 ## Roadmap
