@@ -21,7 +21,7 @@ By using this app, there is no need to go through intensive search on Google and
 
 ## Progress
 
-| <img src="https://github.com/jjpp43/hotspot/assets/61809797/aa149c33-64b4-4968-847d-7a0e037ddf4d" width=40%> |<img src="https://github.com/jjpp43/hotspot/assets/61809797/daebe659-a18a-4a70-8e0d-4dc7ef9f1adf" width=40%> |<img src="https://github.com/jjpp43/hotspot/assets/61809797/667c4955-a900-4220-b32e-0fdbafe4bd5b" width=40%> |
+| <img src="https://github.com/jjpp43/hotspot/assets/61809797/aa149c33-64b4-4968-847d-7a0e037ddf4d" width=60%> |<img src="https://github.com/jjpp43/hotspot/assets/61809797/daebe659-a18a-4a70-8e0d-4dc7ef9f1adf" width=60%> |<img src="https://github.com/jjpp43/hotspot/assets/61809797/667c4955-a900-4220-b32e-0fdbafe4bd5b" width=60%> |
 |:--:|:--:|:--:|
 | *Initial Screen* | *Search Screen* | *Details Screen* |
 
