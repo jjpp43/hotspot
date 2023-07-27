@@ -19,7 +19,7 @@ class InfoState extends Equatable {
     return InfoState(
       infoList: List<InfoModel>.from(
         (map['infoList']).map<InfoModel>(
-          (x) => InfoModel.fromMap(x as Map<String, dynamic>),
+          (x) => InfoModel.fromSnapshot(x as Map<String, dynamic>),
         ),
       ),
     );

@@ -69,6 +69,11 @@ class InfoModel extends Equatable {
     );
   }
 
+  /*---------------------------------------------
+   * Converts the PostModel object to a map, 
+   * which can be used to save the PostModel in Firestore.
+   */
+
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'id': id,
@@ -81,26 +86,29 @@ class InfoModel extends Equatable {
       'off': off,
       'address': address,
       'contact': contact,
-
       'last_update': last_update,
       // 'viewCount': viewCount,
       // 'isFavorite': isFavorite,
     };
   }
 
-  factory InfoModel.fromMap(Map<String, dynamic> map) {
-    return InfoModel(
-      id: map['id'] as int,
-      media_type: map['media_type'] as String,
-      title: map['title'] as String,
-      name: map['name'] as String,
-      location_type: map['location_type'] as String,
-      details: map['details'] as String,
-      workhours: map['workhours'] as String,
-      off: map['off'] as String,
-      address: map['address'] as String,
-      contact: map['contact'] as String,
+  /*--------------------------------------------------------------------
+   * The fromSnapshot factory constructor is used to create a InfoModel instance
+   * from a DocumentSnapshot retrieved from Firestore.
+   */
 
+  factory InfoModel.fromSnapshot(Map<String, dynamic> map) {
+    return InfoModel(
+      id: map['id'],
+      media_type: map['media_type'],
+      title: map['title'],
+      name: map['name'],
+      location_type: map['location_type'],
+      details: map['details'],
+      workhours: map['workhours'],
+      off: map['off'],
+      address: map['address'],
+      contact: map['contact'],
       last_update:
           map['last_update'] != null ? map['last_update'] as Timestamp : null,
       //     viewCount: map['viewCount'] as int,

@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:get/get.dart';
 import 'package:hotspot/src/models/info_model.dart';
 
 import '../../repositories/firestore_repository.dart';
@@ -13,7 +12,8 @@ class InfoBloc extends Bloc<InfoEvent, InfoState> {
     on<getInfoEvent>(_onGetInfoLists);
     on<getMoreInfoEvent>(_onGetMoreInfoLists);
   }
-  List<InfoModel> infoLists = [];
+  final FirestoreRepository _firestoreRepository = FirestoreRepository();
+
   // void _onGetInfoLists(getInfoEvent event, Emitter<InfoState> emit) async {
   //   await FirestoreRepository.getInfoLists().then((value) {
   //     for (var info in value) {
@@ -26,27 +26,28 @@ class InfoBloc extends Bloc<InfoEvent, InfoState> {
   // }
 
   void _onGetInfoLists(getInfoEvent event, Emitter<InfoState> emit) async {
-    final snapshot = await FirestoreRepository.getInfoLists();
+    final snapshot = await _firestoreRepository.getInfoLists();
 
     final List<InfoModel> fetchedInfo =
-        snapshot.docs.map((doc) => InfoModel.fromMap(doc.data())).toList();
+        snapshot.docs.map((doc) => InfoModel.fromSnapshot(doc.data())).toList();
 
-    infoLists.assignAll(fetchedInfo);
-
-    emit(InfoState(infoList: infoLists));
+    emit(InfoState(infoList: fetchedInfo));
   }
 
   void _onGetMoreInfoLists(
       getMoreInfoEvent event, Emitter<InfoState> emit) async {
-    final snapshot = await FirestoreRepository.getMoreInfoLists(
-        lastInfo: state.infoList.last);
+    final lastInfo = state.infoList.last;
+    print('What\'s passed as an argument : $lastInfo');
+    final snapshot = await _firestoreRepository.getMoreInfoLists(lastInfo);
 
     final List<InfoModel> fetchedInfo =
-        snapshot.docs.map((doc) => InfoModel.fromMap(doc.data())).toList();
-
-    infoLists.addAll(fetchedInfo);
-
-    emit(InfoState(infoList: infoLists));
+        snapshot.docs.map((doc) => InfoModel.fromSnapshot(doc.data())).toList();
+    print(
+        'Right after retrieving additional 10 snapshots(${fetchedInfo.length}) : $fetchedInfo');
+    final List<InfoModel> updatedList =
+        List.from(state.infoList..addAll(fetchedInfo));
+    print('All snapshots combined(${updatedList.length}) : $updatedList');
+    emit(InfoState(infoList: updatedList));
   }
 
   void _isFavorite(isFavorite event, Emitter<InfoState> emit) async {}

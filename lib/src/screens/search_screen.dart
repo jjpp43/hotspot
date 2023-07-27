@@ -5,6 +5,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hotspot/src/screens/detail_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:uuid/uuid.dart';
 import 'widgets/search_screen_extended_info.dart';
 
 import '../blocs/bloc_exports.dart';
@@ -29,8 +30,9 @@ class _SearchScreenState extends State<SearchScreen> {
   final String markerSvg = 'assets/svg/marker.svg';
 
   final String offSvg = 'assets/svg/off.svg';
-
+  var uuid = const Uuid();
   ScrollController _scrollController = ScrollController();
+  bool isLoading = false;
 
   @override
   void initState() {
@@ -44,7 +46,18 @@ class _SearchScreenState extends State<SearchScreen> {
       if (_scrollController.offset >=
               _scrollController.position.maxScrollExtent &&
           !_scrollController.position.outOfRange) {
-        context.read<InfoBloc>().add(getMoreInfoEvent());
+        if (!isLoading) {
+          setState(() {
+            isLoading = true;
+          });
+        }
+        final result = context.read<InfoBloc>().state.infoList;
+        if (result.isNotEmpty) {
+          context.read<InfoBloc>().add(getMoreInfoEvent());
+          setState(() {
+            isLoading = false;
+          });
+        }
       }
     });
     return Scaffold(
@@ -92,14 +105,12 @@ class _SearchScreenState extends State<SearchScreen> {
                     children: [
                       BlocBuilder<InfoBloc, InfoState>(
                         builder: (context, state) {
-                          final informationLists = state.infoList;
-                          print(informationLists.length);
                           return ExpansionPanelList.radio(
                             elevation: 0,
-                            children: informationLists
+                            children: state.infoList
                                 .map(
                                   (info) => ExpansionPanelRadio(
-                                    value: info.id,
+                                    value: uuid.v4(),
                                     headerBuilder: (context, isExpanded) =>
                                         Slidable(
                                       startActionPane: ActionPane(
@@ -149,6 +160,8 @@ class _SearchScreenState extends State<SearchScreen> {
                                                           CrossAxisAlignment
                                                               .start,
                                                       children: [
+                                                        Text(
+                                                            info.id.toString()),
                                                         //프로그램 제목
                                                         Container(
                                                           decoration:
@@ -190,6 +203,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                         const SizedBox(
                                                             height: 6),
                                                         //이름 & 장소 타입
+
                                                         Row(
                                                           crossAxisAlignment:
                                                               CrossAxisAlignment
