@@ -10,7 +10,8 @@ By using this app, there is no need to go through intensive search on Google and
 
 ## Built with
 * [![Flutter][Flutter][Flutter-url]
-* [![Firebase][Firebase][Firebase-url]
+* <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" />
+          
 
 ## Roadmap
 ✅ Retrieve information from open-source data
