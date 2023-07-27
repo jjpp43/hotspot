@@ -9,8 +9,7 @@ This project is a starting point for facilitating tourism in Korea.
 By using this app, there is no need to go through intensive search on Google and Naver to find famous spots that appeared on the media. 
 
 ## Built with
-* <img height=30 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" />
-* <img height=30 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" />
+* <code><img width="10%" src="[https://www.vectorlogo.zone/logos/python/python-ar21.svg](https://www.vectorlogo.zone/logos/flutterio/flutterio-ar21.svg)"></code>
           
 
 ## Roadmap
