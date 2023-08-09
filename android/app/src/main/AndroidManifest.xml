@@ -2,7 +2,7 @@
     <application
         android:label="hotspot"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/splash_screen">
         <activity
             android:name=".MainActivity"
             android:exported="true"

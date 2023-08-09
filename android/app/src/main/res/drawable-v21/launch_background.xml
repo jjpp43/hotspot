@@ -6,7 +6,10 @@
     <!-- You can insert your own image assets here -->
     <item>
         <bitmap
+            android:layout_height="fill_parent"
+            android:width="200dp"
+            android:height="200dp"
             android:gravity="center"
-            android:src="@mipmap/splash_screen_390x390" />
+            android:src="@mipmap/splash_screen" />
     </item> 
 </layer-list>
