@@ -43,8 +43,8 @@ class FirestoreRepository {
       // Get the documents with the first two letters of the address field match the region
       return await _firestore
           .collection('info')
-          .where('address', isGreaterThanOrEqualTo: '서울\u0000')
-          .where('address', isLessThan: '서울\uFFFF')
+          .where('address', isGreaterThanOrEqualTo: '서울특별시')
+          .where('address', isLessThan: '서울특별시' 'z')
           .limit(limit)
           .orderBy('address')
           .get();
@@ -60,8 +60,8 @@ class FirestoreRepository {
     try {
       return await _firestore
           .collection('info')
-          .where('address', isGreaterThanOrEqualTo: '서울\u0000')
-          .where('address', isLessThan: '서울\uFFFF')
+          .where('address', isGreaterThanOrEqualTo: '서울특별시')
+          .where('address', isLessThan: '서울특별시' 'z')
           .limit(limit)
           .orderBy('address')
           .startAfter([lastInfo.details]).get();
