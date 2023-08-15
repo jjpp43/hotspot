@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hotspot/src/blocs/bloc_exports.dart';
+import 'package:hotspot/src/blocs/info/info_bloc.dart';
+import 'package:hotspot/src/screens/search_screen.dart';
 import 'widgets/main_screen_block.dart';
 import 'widgets/main_screen_region_block.dart';
 
@@ -30,7 +34,7 @@ class MainScreen extends StatelessWidget {
                               const Row(
                                 children: [
                                   Text(
-                                    '지역별 스팟',
+                                    '지역별 SPOT',
                                     style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.bold,
@@ -48,38 +52,54 @@ class MainScreen extends StatelessWidget {
                                         child: ListView(
                                           shrinkWrap: true,
                                           scrollDirection: Axis.horizontal,
-                                          children: const [
-                                            MainScreenRegionBlock(
-                                                img:
-                                                    'assets/images/seoul-min.jpg',
-                                                title: '서울특별시'),
-                                            SizedBox(width: 10),
-                                            MainScreenRegionBlock(
-                                                img:
-                                                    'assets/images/gyeonggi-min.jpg',
-                                                title: '경기도'),
-                                            SizedBox(width: 10),
-                                            MainScreenRegionBlock(
+                                          children: [
+                                            GestureDetector(
+                                              onTap: () {
+                                                context.read<InfoBloc>().add(
+                                                    getInfoByRegionSeoulEvent());
+                                                Get.to(
+                                                    () => const SearchScreen());
+                                              },
+                                              child: const MainScreenRegionBlock(
+                                                  img:
+                                                      'assets/images/seoul-min.jpg',
+                                                  title: '서울특별시'),
+                                            ),
+                                            const SizedBox(width: 10),
+                                            GestureDetector(
+                                              onTap: () {
+                                                context.read<InfoBloc>().add(
+                                                    getInfoByRegionSeoulEvent());
+                                                Get.to(
+                                                    () => const SearchScreen());
+                                              },
+                                              child: const MainScreenRegionBlock(
+                                                  img:
+                                                      'assets/images/gyeonggi-min.jpg',
+                                                  title: '경기도'),
+                                            ),
+                                            const SizedBox(width: 10),
+                                            const MainScreenRegionBlock(
                                                 img:
                                                     'assets/images/gangwon-min.jpg',
                                                 title: '강원도'),
-                                            SizedBox(width: 10),
-                                            MainScreenRegionBlock(
+                                            const SizedBox(width: 10),
+                                            const MainScreenRegionBlock(
                                                 img:
                                                     'assets/images/gyeongsangdo-min.jpg',
                                                 title: '경상도'),
-                                            SizedBox(width: 10),
-                                            MainScreenRegionBlock(
+                                            const SizedBox(width: 10),
+                                            const MainScreenRegionBlock(
                                                 img:
                                                     'assets/images/choongchungdo-min.jpg',
                                                 title: '충청도'),
-                                            SizedBox(width: 10),
-                                            MainScreenRegionBlock(
+                                            const SizedBox(width: 10),
+                                            const MainScreenRegionBlock(
                                                 img:
                                                     'assets/images/jeonlado-min.jpg',
                                                 title: '전라도'),
-                                            SizedBox(width: 10),
-                                            MainScreenRegionBlock(
+                                            const SizedBox(width: 10),
+                                            const MainScreenRegionBlock(
                                                 img:
                                                     'assets/images/jejudo-min.jpg',
                                                 title: '제주도'),
@@ -101,7 +121,7 @@ class MainScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Text(
-                                    '드라마 스팟',
+                                    '드라마 SPOT',
                                     style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.bold,
@@ -155,7 +175,7 @@ class MainScreen extends StatelessWidget {
                         const Row(
                           children: [
                             Text(
-                              '영화 스팟',
+                              '영화 SPOT',
                               style: TextStyle(
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,
@@ -202,7 +222,7 @@ class MainScreen extends StatelessWidget {
                         const Row(
                           children: [
                             Text(
-                              '예능 스팟',
+                              '예능 SPOT',
                               style: TextStyle(
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,

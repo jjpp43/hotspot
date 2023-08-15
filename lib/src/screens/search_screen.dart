@@ -13,7 +13,6 @@ import '../blocs/info/info_bloc.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
-
   @override
   State<SearchScreen> createState() => _SearchScreenState();
 }
@@ -37,6 +36,7 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   void initState() {
     super.initState();
+
     _scrollController = ScrollController();
   }
 
@@ -106,6 +106,8 @@ class _SearchScreenState extends State<SearchScreen> {
                       BlocBuilder<InfoBloc, InfoState>(
                         builder: (context, state) {
                           return ExpansionPanelList.radio(
+                            dividerColor: Colors.black54,
+                            expandIconColor: Colors.black,
                             elevation: 0,
                             children: state.infoList
                                 .map(
@@ -119,7 +121,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                           SlidableAction(
                                             autoClose: true,
                                             onPressed: (context) {},
-                                            backgroundColor: Colors.green,
+                                            backgroundColor: Colors.black,
                                             icon: Icons.star_border_outlined,
                                             label: '즐겨찾기',
                                           ),
@@ -160,46 +162,30 @@ class _SearchScreenState extends State<SearchScreen> {
                                                           CrossAxisAlignment
                                                               .start,
                                                       children: [
-                                                        Text(
-                                                            info.id.toString()),
                                                         //프로그램 제목
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            border:
-                                                                Border.all(),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12),
-                                                            color: Colors.black,
-                                                          ),
-                                                          child: Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                    .symmetric(
-                                                              horizontal: 6,
-                                                              vertical: 3,
-                                                            ),
-                                                            child: Text(
-                                                              info.title,
-                                                              style:
-                                                                  const TextStyle(
-                                                                fontVariations: <FontVariation>[
-                                                                  FontVariation(
-                                                                    'wght',
-                                                                    500,
-                                                                  ),
-                                                                ],
-                                                                fontSize: 13,
-                                                                letterSpacing:
-                                                                    1,
-                                                                color: Colors
-                                                                    .white,
-                                                              ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .only(
+                                                                  right: 3),
+                                                          child: Text(
+                                                            '#${info.title}',
+                                                            style:
+                                                                const TextStyle(
+                                                              fontVariations: <FontVariation>[
+                                                                FontVariation(
+                                                                  'wght',
+                                                                  500,
+                                                                ),
+                                                              ],
+                                                              fontSize: 14,
+                                                              letterSpacing: 1,
+                                                              color: Colors
+                                                                  .black87,
                                                             ),
                                                           ),
                                                         ),
+
                                                         const SizedBox(
                                                             height: 6),
                                                         //이름 & 장소 타입
@@ -210,13 +196,23 @@ class _SearchScreenState extends State<SearchScreen> {
                                                                   .end,
                                                           children: [
                                                             Text(
-                                                              info.name,
+                                                              info.name.length >
+                                                                      15
+                                                                  ? info.name
+                                                                      .substring(
+                                                                          0, 15)
+                                                                  : info.name,
                                                               style:
                                                                   const TextStyle(
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold,
                                                                 fontSize: 18,
+                                                                color: Colors
+                                                                    .black87,
+                                                                overflow:
+                                                                    TextOverflow
+                                                                        .ellipsis,
                                                               ),
                                                             ),
                                                             const SizedBox(
@@ -243,7 +239,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                               padding:
                                                                   const EdgeInsets
                                                                           .only(
-                                                                      top: 4),
+                                                                      top: 2),
                                                               child: SvgPicture
                                                                   .asset(
                                                                 markerSvg,

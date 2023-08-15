@@ -22,7 +22,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
 
   final List<Map<String, dynamic>> _pageDetails = [
     {'pagename': const MainScreen(), 'title': 'Main'},
-    {'pagename': const SearchScreen(), 'title': 'Search'},
+    {'pagename': SearchScreen(), 'title': 'Search'},
     {'pagename': const ProfileScreen(), 'title': 'Profile'},
   ];
 

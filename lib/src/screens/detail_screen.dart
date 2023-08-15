@@ -35,7 +35,7 @@ class _DetailScreenState extends State<DetailScreen> {
 
   GoogleMapController? mapController;
   Set<Marker> markers = {};
-  LatLng showLocation = const LatLng(36.5, 127);
+  LatLng showLocation = const LatLng(37.5135907, 127.0032551);
 
   String getFirstWords(String sentence) {
     return sentence.split(" ").sublist(0, 2).join(" ");
@@ -121,28 +121,20 @@ class _DetailScreenState extends State<DetailScreen> {
                           children: [
                             Row(
                               children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    border: Border.all(),
-                                    borderRadius: BorderRadius.circular(12),
-                                    color: Colors.black,
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 8, vertical: 4),
-                                    child: Text(
-                                      widget.info.title,
-                                      style: const TextStyle(
-                                        fontVariations: <FontVariation>[
-                                          FontVariation(
-                                            'wght',
-                                            500,
-                                          ),
-                                        ],
-                                        fontSize: 14,
-                                        letterSpacing: 1,
-                                        color: Colors.white,
-                                      ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 3),
+                                  child: Text(
+                                    '#${widget.info.title}',
+                                    style: const TextStyle(
+                                      fontVariations: <FontVariation>[
+                                        FontVariation(
+                                          'wght',
+                                          600,
+                                        ),
+                                      ],
+                                      fontSize: 14,
+                                      letterSpacing: 1,
+                                      color: Colors.black,
                                     ),
                                   ),
                                 ),
@@ -312,7 +304,22 @@ class _DetailScreenState extends State<DetailScreen> {
                               ),
                             ],
                           ),
-                        )
+                        ),
+                        Padding(
+                            padding: const EdgeInsets.only(top: 2),
+                            child: IconButton(
+                              onPressed: () {},
+                              icon: SvgPicture.asset(
+                                'assets/svg/copy.svg',
+                                width: 14,
+                                colorFilter: const ColorFilter.mode(
+                                  Colors.grey,
+                                  BlendMode.srcIn,
+                                ),
+                              ),
+                              splashRadius: 10,
+                              padding: EdgeInsets.zero,
+                            )),
                       ],
                     ),
                     const SizedBox(height: 10),

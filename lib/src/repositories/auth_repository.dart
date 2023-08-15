@@ -5,13 +5,14 @@ import 'package:google_sign_in/google_sign_in.dart';
 class AuthRepository {
   final _firebaseAuth = FirebaseAuth.instance;
   final _firestore = FirebaseFirestore.instance;
+  GoogleSignInAccount? _googleUser;
 
   Future<void> signInWithGoogle() async {
     try {
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      _googleUser = await GoogleSignIn().signIn();
 
       final GoogleSignInAuthentication? googleAuth =
-          await googleUser?.authentication;
+          await _googleUser?.authentication;
 
       final credential = GoogleAuthProvider.credential(
         accessToken: googleAuth?.accessToken,
@@ -26,6 +27,10 @@ class AuthRepository {
     } catch (e) {
       throw Exception(e.toString());
     }
+  }
+
+  String? getUserId() {
+    return _googleUser!.id;
   }
 
   Future<void> addUser(User user) async {

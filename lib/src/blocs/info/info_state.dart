@@ -2,8 +2,10 @@ part of 'info_bloc.dart';
 
 class InfoState extends Equatable {
   final List<InfoModel> infoList;
+  final String? region;
   const InfoState({
     required this.infoList,
+    this.region,
   });
 
   @override

@@ -42,9 +42,9 @@ class MainScreenRegionBlock extends StatelessWidget {
             title,
             style: const TextStyle(
               color: Colors.white,
-              fontVariations: <FontVariation>[FontVariation('wght', 500)],
+              fontVariations: <FontVariation>[FontVariation('wght', 400)],
               letterSpacing: 1,
-              fontSize: 16,
+              fontSize: 17,
             ),
           ),
         ),
