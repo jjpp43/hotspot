@@ -13,6 +13,9 @@ class InfoBloc extends Bloc<InfoEvent, InfoState> {
     on<getMoreInfoEvent>(_onGetMoreInfoLists);
     on<getInfoByRegionSeoulEvent>(_onGetInfoListsByRegionSeoul);
     on<getMoreInfoByRegionSeoulEvent>(_onGetMoreInfoListsByRegionSeoul);
+    on<getInfoByRegionGyeonggidoEvent>(_onGetInfoListsByRegionGyeonggido);
+    on<getMoreInfoByRegionGyeonggidoEvent>(
+        _onGetMoreInfoListsByRegionGyeonggido);
     on<changeRegionEvent>(_onChangeRegion);
   }
   final FirestoreRepository _firestoreRepository = FirestoreRepository();
@@ -70,6 +73,35 @@ class InfoBloc extends Bloc<InfoEvent, InfoState> {
     // print('What\'s passed as an argument : $lastInfo');
     final snapshot =
         await _firestoreRepository.getMoreInfoListsByRegionSeoul(lastInfo);
+
+    final List<InfoModel> fetchedInfo =
+        snapshot.docs.map((doc) => InfoModel.fromSnapshot(doc.data())).toList();
+    // print(
+    //     'Right after retrieving additional 10 snapshots(${fetchedInfo.length}) : $fetchedInfo');
+    final List<InfoModel> updatedList =
+        List.from(state.infoList..addAll(fetchedInfo));
+    // print('All snapshots combined(${updatedList.length}) : $updatedList');
+    emit(InfoState(infoList: updatedList));
+  }
+
+  void _onGetInfoListsByRegionGyeonggido(
+      getInfoByRegionGyeonggidoEvent event, Emitter<InfoState> emit) async {
+    state.infoList.clear();
+    final snapshot =
+        await _firestoreRepository.getInfoListsByRegionGyeonggido();
+
+    final List<InfoModel> fetchedInfo =
+        snapshot.docs.map((doc) => InfoModel.fromSnapshot(doc.data())).toList();
+
+    emit(InfoState(infoList: fetchedInfo));
+  }
+
+  void _onGetMoreInfoListsByRegionGyeonggido(
+      getMoreInfoByRegionGyeonggidoEvent event, Emitter<InfoState> emit) async {
+    final lastInfo = state.infoList.last;
+    // print('What\'s passed as an argument : $lastInfo');
+    final snapshot =
+        await _firestoreRepository.getMoreInfoListsByRegionGyeonggido(lastInfo);
 
     final List<InfoModel> fetchedInfo =
         snapshot.docs.map((doc) => InfoModel.fromSnapshot(doc.data())).toList();

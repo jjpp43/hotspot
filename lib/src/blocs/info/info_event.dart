@@ -34,6 +34,16 @@ class getMoreInfoByRegionSeoulEvent extends InfoEvent {
   List<Object> get props => [];
 }
 
+class getInfoByRegionGyeonggidoEvent extends InfoEvent {
+  @override
+  List<Object> get props => [];
+}
+
+class getMoreInfoByRegionGyeonggidoEvent extends InfoEvent {
+  @override
+  List<Object> get props => [];
+}
+
 class isFavorite extends InfoEvent {
   @override
   List<Object> get props => [];

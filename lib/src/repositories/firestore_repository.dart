@@ -44,7 +44,7 @@ class FirestoreRepository {
       return await _firestore
           .collection('info')
           .where('address', isGreaterThanOrEqualTo: '서울특별시')
-          .where('address', isLessThan: '서울특별시' 'z')
+          .where('address', isLessThanOrEqualTo: '서울특별시' '\uf8ff')
           .limit(limit)
           .orderBy('address')
           .get();
@@ -61,9 +61,44 @@ class FirestoreRepository {
       return await _firestore
           .collection('info')
           .where('address', isGreaterThanOrEqualTo: '서울특별시')
-          .where('address', isLessThan: '서울특별시' 'z')
+          .where('address', isLessThanOrEqualTo: '서울특별시' '\uf8ff')
           .limit(limit)
           .orderBy('address')
+          .startAfter([lastInfo.details]).get();
+    } catch (e) {
+      throw (Exception(e.toString()));
+    }
+  }
+
+  /// By region query
+  Future<QuerySnapshot<Map<String, dynamic>>> getInfoListsByRegionGyeonggido(
+      {int limit = 20}) async {
+    try {
+      // Adjust the query using where() to filter the documents based on 'address'
+      // Get the documents with the first two letters of the address field match the region
+      return await _firestore
+          .collection('info')
+          .where('address', isGreaterThanOrEqualTo: '경기도')
+          .where('address', isLessThanOrEqualTo: '경기도' '\uf8ff')
+          .limit(limit)
+          .orderBy('address', descending: true)
+          .get();
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+  }
+
+  /// Fetching more region based query
+  Future<QuerySnapshot<Map<String, dynamic>>>
+      getMoreInfoListsByRegionGyeonggido(InfoModel lastInfo,
+          {int limit = 20}) async {
+    try {
+      return await _firestore
+          .collection('info')
+          .where('address', isGreaterThanOrEqualTo: '경기도')
+          .where('address', isLessThanOrEqualTo: '경기도' '\uf8ff')
+          .limit(limit)
+          .orderBy('address', descending: true)
           .startAfter([lastInfo.details]).get();
     } catch (e) {
       throw (Exception(e.toString()));
