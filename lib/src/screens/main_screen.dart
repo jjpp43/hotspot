@@ -69,7 +69,7 @@ class MainScreen extends StatelessWidget {
                                             GestureDetector(
                                               onTap: () {
                                                 context.read<InfoBloc>().add(
-                                                    getInfoByRegionSeoulEvent());
+                                                    getInfoByRegionGyeonggidoEvent());
                                                 Get.to(
                                                     () => const SearchScreen());
                                               },

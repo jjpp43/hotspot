@@ -7,6 +7,7 @@ import 'package:like_button/like_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../models/info_model.dart';
+import 'package:flutter/services.dart';
 
 class DetailScreen extends StatefulWidget {
   final InfoModel info;
@@ -308,7 +309,14 @@ class _DetailScreenState extends State<DetailScreen> {
                         Padding(
                             padding: const EdgeInsets.only(top: 2),
                             child: IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Clipboard.setData(ClipboardData(
+                                        text: widget.info.address))
+                                    .then((_) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(content: Text('복사 완료!')));
+                                });
+                              },
                               icon: SvgPicture.asset(
                                 'assets/svg/copy.svg',
                                 width: 14,
@@ -317,8 +325,10 @@ class _DetailScreenState extends State<DetailScreen> {
                                   BlendMode.srcIn,
                                 ),
                               ),
-                              splashRadius: 10,
+                              splashRadius: 15,
                               padding: EdgeInsets.zero,
+                              constraints: const BoxConstraints(
+                                  maxHeight: 16, minHeight: 16),
                             )),
                       ],
                     ),
@@ -432,6 +442,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               fontVariations: <FontVariation>[
                                 FontVariation('wght', 400)
                               ],
+                              height: 1.4,
                             ),
                             overflow: TextOverflow.clip,
                             maxLines: null,
