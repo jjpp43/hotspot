@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../blocs/bloc_exports.dart';
@@ -59,7 +58,6 @@ class ProfileScreen extends StatelessWidget {
                                 FontVariation('wght', 400),
                               ],
                               fontSize: 15,
-                              color: Colors.black,
                             ),
                           ),
                         ],
@@ -101,7 +99,6 @@ class ProfileScreen extends StatelessWidget {
                                 FontVariation('wght', 400),
                               ],
                               fontSize: 15,
-                              color: Colors.black,
                             ),
                           )
                         ],

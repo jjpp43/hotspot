@@ -107,11 +107,11 @@ class _SearchScreenState extends State<SearchScreen> {
                         builder: (context, state) {
                           return ExpansionPanelList.radio(
                             dividerColor: Colors.black54,
-                            expandIconColor: Colors.black,
                             elevation: 0,
                             children: state.infoList
                                 .map(
                                   (info) => ExpansionPanelRadio(
+                                    backgroundColor: Colors.black,
                                     value: uuid.v4(),
                                     headerBuilder: (context, isExpanded) =>
                                         Slidable(
@@ -180,8 +180,6 @@ class _SearchScreenState extends State<SearchScreen> {
                                                               ],
                                                               fontSize: 14,
                                                               letterSpacing: 1,
-                                                              color: Colors
-                                                                  .black87,
                                                             ),
                                                           ),
                                                         ),
@@ -208,8 +206,6 @@ class _SearchScreenState extends State<SearchScreen> {
                                                                     FontWeight
                                                                         .bold,
                                                                 fontSize: 18,
-                                                                color: Colors
-                                                                    .black87,
                                                                 overflow:
                                                                     TextOverflow
                                                                         .ellipsis,
