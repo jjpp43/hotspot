@@ -24,13 +24,9 @@ class AppThemes {
       ),
       textTheme: const TextTheme(
         titleMedium: TextStyle(color: Colors.white),
-        labelSmall: TextStyle(
-          fontVariations: <FontVariation>[
-            FontVariation('wght', 400),
-          ],
-          fontSize: 15,
-          color: Colors.white,
-        ),
+        labelSmall: TextStyle(fontVariations: <FontVariation>[
+          FontVariation('wght', 400),
+        ], fontSize: 15, color: Colors.white),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: Colors.black,
@@ -39,9 +35,8 @@ class AppThemes {
       ),
       colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.grey)
           .copyWith(
-            background: const Color.fromARGB(255, 0, 0, 0),
-            brightness: Brightness.dark,
-          )
+              background: const Color.fromARGB(255, 0, 0, 0),
+              brightness: Brightness.dark)
           .copyWith(background: Colors.black),
     ),
     //
