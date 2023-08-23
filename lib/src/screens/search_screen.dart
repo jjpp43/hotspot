@@ -111,7 +111,13 @@ class _SearchScreenState extends State<SearchScreen> {
                             children: state.infoList
                                 .map(
                                   (info) => ExpansionPanelRadio(
-                                    backgroundColor: Colors.black,
+                                    backgroundColor: context
+                                                .read<SwitchBloc>()
+                                                .state
+                                                .switchValue ==
+                                            true
+                                        ? Colors.black
+                                        : Colors.white,
                                     value: uuid.v4(),
                                     headerBuilder: (context, isExpanded) =>
                                         Slidable(

@@ -1,11 +1,13 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:like_button/like_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../blocs/switch_theme/switch_bloc.dart';
 import '../models/info_model.dart';
 import 'package:flutter/services.dart';
 
@@ -195,18 +197,52 @@ class _DetailScreenState extends State<DetailScreen> {
                                 size: 24,
                                 animationDuration:
                                     const Duration(milliseconds: 800),
-                                circleColor: const CircleColor(
-                                  start: Colors.white,
-                                  end: Colors.black,
+                                circleColor: CircleColor(
+                                  start: context
+                                              .read<SwitchBloc>()
+                                              .state
+                                              .switchValue ==
+                                          true
+                                      ? Colors.white
+                                      : Colors.black,
+                                  end: context
+                                              .read<SwitchBloc>()
+                                              .state
+                                              .switchValue ==
+                                          true
+                                      ? Colors.white
+                                      : Colors.black,
                                 ),
-                                bubblesColor: const BubblesColor(
-                                  dotPrimaryColor: Colors.white,
-                                  dotSecondaryColor: Colors.white,
+                                bubblesColor: BubblesColor(
+                                  dotPrimaryColor: context
+                                              .read<SwitchBloc>()
+                                              .state
+                                              .switchValue ==
+                                          true
+                                      ? Colors.white
+                                      : Colors.black,
+                                  dotSecondaryColor: context
+                                              .read<SwitchBloc>()
+                                              .state
+                                              .switchValue ==
+                                          true
+                                      ? Colors.white
+                                      : Colors.black,
                                 ),
                                 likeBuilder: (bool isLiked) {
                                   if (isLiked) {
                                     return SvgPicture.asset(
                                       bookmarkFilledSvg,
+                                      colorFilter: ColorFilter.mode(
+                                        context
+                                                    .read<SwitchBloc>()
+                                                    .state
+                                                    .switchValue ==
+                                                true
+                                            ? Colors.white
+                                            : Colors.black,
+                                        BlendMode.srcIn,
+                                      ),
                                     );
                                   }
                                   return SvgPicture.asset(
@@ -239,7 +275,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               (MediaQuery.of(context).size.width - 40) / 2,
                               MediaQuery.of(context).size.width * 0.1,
                             ),
-                            side: const BorderSide(),
+                            side: const BorderSide(color: Colors.black),
                             shape: const StadiumBorder(),
                             backgroundColor: Colors.white,
                             elevation: 0,
@@ -261,7 +297,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               MediaQuery.of(context).size.width * 0.42,
                               MediaQuery.of(context).size.width * 0.1,
                             ),
-                            side: const BorderSide(),
+                            side: const BorderSide(color: Colors.white),
                             shape: const StadiumBorder(),
                             backgroundColor: Colors.black,
                             elevation: 0,
