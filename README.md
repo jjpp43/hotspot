@@ -25,7 +25,7 @@ By using this app, there is no need to go through intensive search on Google and
 ## Roadmap
 
 ✅ Retrieve information from open-source data  
-✅ Retrieve information based off of desired region 
+✅ Retrieve information based off of desired region  
 ⬜ Implemtent filter to search results to allow users look for information matching their taste.  
 ⬜ Add "Review" functionality to each location 
 
